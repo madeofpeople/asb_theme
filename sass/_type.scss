@@ -1,0 +1,99 @@
+
+
+@include establish-baseline;
+
+@include font-face('League', 'leaguegothic', '../fonts/league_gothic' );
+@include font-face('SourceSansPro', 'source_sans_proregular', '../fonts/sourcesanspro-regular' );
+@include font-face('SourceSansPro', 'source_sans_proitalic', '../fonts/sourcesanspro-italic', normal, italic);
+@include font-face('SourceSansPro', 'source_sans_probold', '../fonts/sourcesanspro-bold', bold );
+@include font-face('SourceSansPro', 'source_sans_probold_italic', '../fonts/sourcesanspro-bolditalic', bold, italic);
+@include font-face( entypo, 'entypo', "../fonts/entypo", normal, normal);
+@include font-face( entypo-social, 'entypo-social', "../fonts/entypo-social", normal, normal );
+
+$header-font-family: League, Helvetica, sans;
+
+%header {
+  text-transform: uppercase;
+  color: $text-color-prominent;
+  font-family: $header-font-family;
+  font-weight: $header-font-weight;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+#modal-title {
+  @extend %header;
+}
+
+%h2 {
+  @extend %header;
+  font-size: $h2-font-size;
+}
+
+h1 {
+  font-size: $h1-font-size;
+}
+
+h2,
+.modal-update-title,
+#modal-title,
+#og-ui-confirm-subscribe .fieldset-legend {
+  @extend %h2;
+}
+
+h3 {
+  font-size: $h3-font-size;
+}
+
+h4 {
+  font-size: $h4-font-size;
+}
+
+a,
+a:link,
+h3.scheme-name a {
+  text-decoration: none;
+  color: $accent;
+  &:hover {
+    color: darken($accent, 20%);
+  }
+}
+
+h2#site-name,
+h1#site-name {
+  font-size: 4.5em;
+  color: $site-title-color;
+  a, a:link, a:visited {
+    color: inherit;
+  }
+}
+
+h2#what-is-an-action-switchboard {
+  font-family: $base-font-family;
+  background-color: $brand;
+  font-size: 1.25em;
+  letter-spacing: 1px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+h1#page-title {
+  font-size: $h1-font-size;
+  line-height: 1.1em;
+  // line-height: $h1-font-size;
+}
+
+h6,
+.issue dt {
+  font-size: $base-font-size;
+  font-family: $base-font-family;
+  font-weight: $header-font-weight;
+  color: $text-color;
+}
+
+#stepper-add-scheme {
+  font-family: $header-font-family;
+}

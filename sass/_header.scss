@@ -1,0 +1,549 @@
+/**
+ * @file
+ * Navigation Styling
+ */
+
+@import "base";
+
+#adhoc_nav {
+    position: relative;
+    z-index: 1000;
+    clear: both;
+    width: 100%;
+    @extend .clearfix;
+    @media (min-width: $screen-sm) {
+      height: 3.25em;
+    }
+    @media (min-width: $screen-md) {
+      @include zigzag-border (#000,transparent);
+    }
+    .region-adhoc-nav {
+      background-color: #000;
+      height: 2.25em;
+      @extend .clearfix;
+    }
+    .block-menu {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .block-title {
+      @extend .offscreen;
+    }
+    ul.menu {
+      @extend .clearfix;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        float: left;
+        a {
+          display: block;
+          height: 1.25em;
+          color: $panel;
+          background-color: #000;
+          border-right: 1px #333 solid;
+          padding: .5em 1em;
+          &:hover {
+            background: #fff;
+            color: $backdrop;
+          }
+        }
+      }
+    }
+}
+
+#navigation {
+  .block {
+    margin-bottom: 0;
+  }
+  .block-menu .block-title,
+  .block-menu-block .block-title {
+    @include element-invisible();
+  }
+}
+
+#header {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  background-repeat: repeat-x !important;
+  // overflow: hidden;
+  // height: 170px;
+  @extend .clearfix;
+  #site-name {
+    height: 81px;
+    position: relative;
+    width: 100%;
+    z-index: 10;
+    background-image: url('../images/logostrip.png?1376927784');
+    background-position: center top;
+    background-repeat: repeat-x !important;
+    margin: 0;
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      span {
+        @include offscreen();
+      }
+    }
+  }
+  #navigation {
+    position: relative;
+    background: $backdrop;
+    .region-header {
+      margin: 0 auto;
+    }
+    .block-asb-scheme,
+    .block-menu-block {
+      vertical-align: top;
+      display: inline-block;
+    }
+    .block-menu-block {
+      ul.menu {
+        margin-top: 0 !important;
+      }
+      li {
+        border-right: 1px $text-color solid;
+        padding: 1em .5em 0 .5em;
+        margin-right: .875em;
+        min-height: 4.5em;
+      }
+      .description {
+        display: block;
+        margin-top: .5em;
+      }
+      .description,
+      .logout {
+        color: $nav-description-color;
+        a {
+          color: $text-color;
+        }
+      }
+    }
+    .title {
+      font-size: 15px;
+      color: $nav-title-color;
+    }
+    .username {
+      line-height: 1.25;
+      display: inline-block;
+      margin-left: .5em;
+    }
+    .logout {
+      line-height: 2;
+    }
+    .block-asb-scheme {
+      padding-left: 1em;
+      .asb-scheme-user-message>div {
+        vertical-align: top;
+      }
+    }
+  }
+
+  @include breakpoint( sm, max-width ) {
+    .block-menu-block {
+      .menu-block-wrapper {
+        text-align: left;
+        display: inline-block;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  @include breakpoint( sm ) {
+    .block-asb-scheme,
+    .block-menu-block {
+      display: inline-block;
+    }
+  }
+
+  @include breakpoint( md ) {
+    .container {
+      @include pie-clearfix;
+      position: relative;
+      z-index: 5;
+      background-image: url('../images/logostrip.png?1376927784');
+      background-position: center bottom;
+    }
+    #site-name {
+      width: 428px;
+      background-image: none;
+      display: block;
+      float: left;
+    }
+
+    #navigation {
+      width: auto;
+      margin-left: 0;
+      margin-right: 0;
+      float: left;
+      display: block;
+      background-color: transparent;
+      .region-header {
+        max-width: none;
+        margin: 0;
+      }
+      .block-menu-block {
+        vertical-align: top;
+        display:inline-block;
+        padding: 0;
+        ul.menu {
+          padding: 0 .5em;
+          margin: 0;
+        }
+      }
+      .block-asb-scheme {
+        vertical-align: top;
+        display:inline-block;
+      }
+    }
+
+  }
+
+}
+
+.front {
+
+  #header {
+    #site-name {
+      float: none;
+      a {
+        background-image: url('../images/logo_phone.png?1376927784');
+        background-repeat: no-repeat;
+        background-position: center;
+        display: block;
+        width: 100%;
+      }
+      background-position: center top;
+      @include zigzag-border ($accent, $brand);
+    }
+    #what-is-an-action-switchboard {
+      margin: 0 auto;
+      @include box-sizing( border-box );
+      padding: .5em 0 .75em 0;
+      a {
+        display: block;
+        height: 100%;
+      }
+    }
+    @include breakpoint(md,max-width) {
+      background-color: $brand;
+      #site-name {
+        float: none;
+        a {
+          background-color: $accent;
+        }
+      }
+    }
+    @include breakpoint(md) {
+      .container {
+        position: relative;
+        z-index: 5;
+        height: 81px;
+        @include pie-clearfix;
+        background-image: url('../images/logostrip_home.png?1376927784');
+        background-position: center bottom;
+      }
+
+      #name-and-slogan {
+
+        display:block;
+        float: left;
+        width: 428px;
+
+        #site-name {
+          height: 81px;
+          background-image: none;
+          background-color: transparent;
+          a {
+            background-image: none;
+          }
+        }
+
+        #what-is-an-action-switchboard {
+          position: absolute;
+          background-color: transparent;
+          width: 428px;
+          height: 123px;
+          z-index: 100;
+          top: 110px;
+          margin: 0;
+          padding: 0;
+          line-height: 1;
+          margin-left: 0;
+          margin-right: 0;
+          background-image: url('../images/logo_home.png?1376927784');
+          background-position: center bottom;
+          a {
+            text-indent: -10000px;
+            display: block;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+}
+
+.not-front {
+  #header {
+    @include breakpoint(md) {
+      height: 81px;
+      > .container {
+        height: 81px;
+      }
+      #navigation {
+        top: 0;
+      }
+    }
+  }
+}
+
+.logged-in {
+  #navigation {
+    @include breakpoint( sm, max-width ) {
+      .block-menu-block {
+        float: none;
+        li.last {
+          border-right: none !important;
+        }
+      }
+      .block-asb-scheme {
+        display: block;
+        text-align: center;
+        .asb-scheme-user-message {
+          @include clearfix;
+          margin: 0 auto;
+        }
+        .title,
+        .username,
+        .userdashboard,
+        .logout {
+          text-align: left;
+          font-size: 12px;
+          display: inline-block;
+          vertical-align: bottom;
+          line-height: 1.5;
+        }
+        .username { margin: 0 .25em; }
+      }
+    }
+  }
+}
+
+
+#header {
+  a {
+    color: $nav-title-color; //consider using the standard links mixin
+  }
+  #navigation {
+    .block-menu-block {
+      background: none;
+      ul li {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 0;
+        padding-left: .5em;
+      }
+    }
+    #block-asb-scheme-user-message,
+    #block-system-user-menu {
+      padding-top: 1em;
+      padding-left: .5em;
+    }
+  }
+
+  #block-system-user-menu,
+  #block-asb-scheme-user-message,
+  .block-menu-block ul li {
+    .userdashboard {
+      @include zen-clear;
+      display: inline-block;
+      .icon {
+        @include font-icon-base($family:"entypo", $font-size: 2em, $width: .5em, $margin: 0.2em, $color: $nav-title-color);
+        @extend %entypo-tools;
+      }
+    }
+    .logout {
+      display: inline-block;
+      margin-left: 6px;
+    }
+    .login,
+    .register {
+      a {
+        color: $nav-title-color;
+      }
+    }
+    &.is-active a,
+    &.is-active div {
+      color: $text-color;
+    }
+  }
+
+}
+
+#block-asb-scheme-user-message {
+  .title {
+    float: left;
+  }
+}
+
+#nav-find {
+  color: #fff;
+  cursor: pointer;
+  @include font-icon-base($family:"entypo", $font-size: 1.65em, $margin: 0em, $width: .3em);
+  @extend %entypo-search;
+  &:before {
+    position: absolute;
+    width: 48px;
+    margin-top: -2px;
+    content: "\1F50D";
+    text-align: right;
+  }
+}
+
+.front {
+
+  #header-image-strip {
+    display: none;
+    @include breakpoint( md ) {
+      display: block;
+      position: absolute;
+      top: 102px;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      z-index: 1;
+      font-size: 0;
+      ul,
+      li {
+        margin:0;
+        padding:0;
+      }
+      li {
+        display: inline-block;
+      }
+      img{
+        display: block;
+        width: 166px;
+        height: auto;
+      }
+      .logged-in.admin-menu & {
+        top: 77px;
+      }
+    }
+  }
+
+}
+
+.front.logged-in.admin-menu {
+ #header-image-strip {
+    @include breakpoint( md ) {
+      top: 122px;
+    }
+  }
+}
+
+/* Social Nav */
+
+#block-menu-menu-social-links {
+  @include box-sizing( border-box );
+  display: inline-block;
+  margin: 0;
+  padding: 0 .5em;
+  border-right: 1px $text-color solid;
+  ul.menu {
+    @include no-bullets;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+#nav-twitter,
+#nav-facebook {
+  display: inline-block;
+  border-right: none;
+  padding: 0;
+  .title {
+    @include font-icon-base($family:"entypo-social", $font-size: 3rem, $width: 2rem, $margin: 0, $color: $nav-title-color);
+  }
+  .description {
+    line-height: 1;
+    display: none;
+  }
+}
+
+#nav-twitter {
+  .title {
+    @extend %entypo-social-twitter;
+  }
+}
+
+#nav-facebook {
+  .title {
+    @extend %entypo-social-facebook;
+  }
+}
+
+#nav-join-newsletter {
+  min-width: 106px;
+  .title {
+    font-size: 12px !important;
+    font-weight: normal !important;
+    color: $text-color !important;
+    display: inline-block;
+  }
+  .icon.mail {
+    display: inline-block;
+    @include font-icon-base( $family:"entypo", $font-size: 3rem, $width: 2rem, $margin: 0, $color: $nav-title-color);
+    @extend %entypo-mail;
+    &::before {
+      line-height: .5;
+    }
+  }
+  padding-bottom: 1em;
+}
+
+// Donate Button
+#donate-positioning-wrapper {
+  @extend %full-centered;
+  position: relative;
+}
+
+#global-donate {
+  @include button($height: 1.75em, $color: transparent, $radius: 4px, $font-size: 2rem);
+  right: 0;
+  @media ( max-width: $screen-md ){
+    width: 100%;
+    @include border-radius(0);
+    background-color: $brand;
+  }
+  @media ( min-width: $screen-md ){
+    position: absolute;
+    top: -1.25em;
+    background-color: none !important;
+    background-image: url('/sites/all/themes/asb/images/donate-starburst.png');
+    text-align: center;
+    width: 90px;
+    height: 90px;
+    padding:0;
+    padding-top: 1em;
+    border-radius: 50%;
+    z-index: 1001;
+    letter-spacing: .05em;
+    transform: rotate(-7deg);
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+    transition-duration: .175s;
+    &:hover {
+      background-color: none !important;
+      transform: rotate(0);
+    }
+  }
+
+  box-sizing: border-box;
+
+  @include box-sizing( border-box );
+
+}

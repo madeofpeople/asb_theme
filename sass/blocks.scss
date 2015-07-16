@@ -1,0 +1,234 @@
+/**
+ * @file
+ * Block Styling
+ */
+
+@import "base";
+
+
+.block { /* Block wrapper */
+  margin-bottom: 6px;
+}
+
+// Generalized for sidebar region
+aside {
+  section.sidebar {
+    margin-top: 2.5em;
+  }
+}
+
+aside {
+  .block { /* Block wrapper */
+    padding: 12px;
+    background: $sidebar-panel-primary;
+    color: $text-color-prominent;
+
+    .view-scheme-members div.view-header p {
+      border: none;
+    }
+    h6 {
+      color: $text-color-prominent;
+      margin-bottom: 0;
+      &:first-letter {
+        font-size: $h2-font-size - 4px;
+      }
+    }
+    .view-header h3 {
+      margin: 0;
+      padding-top: 10px;
+      border-top: {
+        @include standard-border;
+      }
+      @include body-text ($size: $h3-font-size, $weight: bold, $transform: uppercase, $color: $text-color-prominent);
+    }
+  }
+
+  //Once styles specified in scheme-layout.tpl.php are implemented, these styles will apply
+  #needs {
+    a#bigbutton {
+      @include button($height: 58px, $font-size: $h2-font-size, $font-color: $nav-title-color, $font-family: $header-font-family);
+      width: 100%;
+    }
+    #needs-skills {
+      a#bigbutton {
+        background: $skills;
+      }
+    }
+    #needs-supplies {
+      a#bigbutton {
+        background: $supplies;
+      }
+    }
+    #needs-funds {
+      a#bigbutton {
+        background: $funds;
+      }
+    }
+  }
+
+  //Temporary until scheme-layout.tpl.php are implemented
+  .block-views {
+    .view-scheme-contribute {
+      margin-bottom: 6px;
+      .view-footer,
+      .donate-button {
+        @include zen-clear;
+        width: 100%;
+        p {
+          margin-bottom: 0;
+        }
+        a {
+          @include button($height: 58px, $font-size: $h2-font-size, $font-color: $nav-title-color, $font-family: $header-font-family, $display: block);
+        }
+        &.skills a {
+          background: $skills;
+        }
+        &.supplies a {
+          background: $supplies;
+        }
+        &.funds a {
+          background: $funds;
+        }
+      }
+    }
+  }
+
+  #block-views-scheme-contribute-block {
+    div.donate-button a,
+    .view-footer a {
+      background: $skills;
+    }
+  }
+  #block-views-scheme-contribute-block-1 {
+    div.donate-button a,
+    .view-footer a {
+      background: $supplies;
+    }
+  }
+  #block-views-scheme-contribute-block-2 {
+    div.donate-button a,
+    .view-footer a {
+      background: $funds;
+    }
+  }
+  #block-asb-scheme-facilitator-contact {
+    div.facilitator-button {
+      @include zen-clear;
+      width: 100%;
+      a {
+        @include button($height: 58px, $font-size: $h2-font-size, $font-color: #fff, $font-family: $header-font-family, $display: block);
+        background: $skills;
+      }
+    }
+    .facilitator-text {
+      text-align: center;
+      font-size: 1.3em;
+      padding: .5em;
+    }
+  }
+  #block-views-925ec4f76f8d53da36cf50cc845b8316 {
+    div.view-footer {
+      text-align: center;
+      a {
+        @include button($height: 36px, $font-size: $h3-font-size + 10);
+      }
+    }
+  }
+}
+
+.node-type-scheme {
+  aside > .block { /* Block wrapper */
+    padding: 18px 15px 10px 15px;
+    background: $sidebar-panel-primary;
+
+    .view-header p {
+        margin-top: 0;
+        padding-top: 4px;
+        @include header-style ($family: $base-font-family, $size: $h3-font-size, $transform: uppercase, $weight: bold);
+        border-top: {
+          @include standard-border;
+        }
+    }
+    &.block-asb-scheme {
+      .scheme-leader {
+        min-height: 72px;
+        .scheme-leader-name {
+          @include header-style ($family: $base-font-family, $size: $h3-font-size, $transform: capitalize, $weight: bold);
+        }
+        .scheme-leader-thumb {
+          @include zen-float;
+          width: 71px;
+        }
+        .scheme-leader-name,
+        .scheme-leader-contact {}
+      }
+    }
+    &#block-asb-scheme-group-info { 
+      display: block;
+      margin-top: 1.5em;
+      margin-bottom: 0;
+      background-color: $sidebar-panel-secondary;
+      h2.block-title {
+        @include header-style ($family: $base-font-family, $size: $h3-font-size + 3px, $transform: capitalize, $weight: bold);
+        border: none;
+      }
+    }
+    .edit &#block-asb-scheme-group-info {
+      margin-top: 0;
+    }
+    &#block-views-scheme-members-block-1 {
+      background-color: $sidebar-panel-secondary;
+      margin-bottom: 1.5em;
+      h2.block-title {
+        padding-top: 10px;
+        @include header-style ($family: $base-font-family, $size: $h3-font-size, $transform: capitalize, $weight: bold);
+        border-top: {
+          @include standard-border;
+        }
+        border-bottom: none;
+      }
+
+      ul { margin:0.5em auto }
+      .schemers {
+        ul.scheme-members {
+          @include no-bullets;
+          margin: 0 auto;
+          padding: 0;
+          li {
+            text-align:center; 
+            display:inline-block; 
+            padding:0.1em 0.4em;
+          }
+        }
+      }
+    }
+    &#block-views-scheme-contribute-block {
+      .view-header p {
+        border-top: none;
+      }
+    }
+
+    &#block-views-925ec4f76f8d53da36cf50cc845b8316 { // The member request block that appears for scheme leaders
+      margin-top: 1.5em;
+      .member-requests {
+        li {
+          .user-picture,
+          a {
+            display: inline-block;
+            vertical-align: middle;
+          }
+          .user-picture {
+            padding-right: 5px;
+          }
+        }
+      }
+    }
+  }
+  .views-row-last {
+    .item-list ul li {
+      border: none;
+      padding-bottom: 10px;
+    }
+  }
+}
+

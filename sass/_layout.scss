@@ -1,0 +1,409 @@
+// Region Search
+.front {
+  .region-search {
+    position: relative;
+  }
+  #content {
+    padding-top: 2em;
+  }
+}
+
+// Tour
+#tour.hidden {
+  iframe {
+    @include element-invisible();
+  }
+}
+
+#tour.active {
+  @include element-invisible-off();
+  display: none;
+}
+
+////////////////////
+// #main
+////////////////////
+
+#main {
+  padding-bottom: 2em;
+}
+
+.not-front #main {
+  // @include clearfix;
+  min-height: 30em;
+  position: relative;
+  top: 0;
+  @include breakpoint( md ) {
+    padding-top: 2em;
+  }
+  @include zigzag-border ($odd-backdrop, $backdrop);
+}
+
+// Create a scheme has different background color
+.page-node-add-scheme {
+  #main {
+    @include zigzag-border ( $panel, $backdrop );
+  }
+}
+
+.page-schemes #main {
+  top: -8px;
+  margin-bottom: -8px;
+}
+
+.front #main {
+  @include breakpoint( md ){
+    position: relative;
+    top: 110px;
+    margin-bottom: 110px;
+  }
+}
+
+#user-content {
+  margin-top: 2em;
+}
+
+.front #main,
+.page-user:not(.page-user-edit) #main,
+// .page-user-edit #main,
+.page-schemes #main {
+  padding-bottom: 0;
+}
+
+.not-logged-in.page-user #main,
+.page-user-password #main {
+  top: 0;
+  margin-bottom: 0;
+  padding-bottom: 3em;
+}
+
+#main #content .wrapper{
+  section.content,
+  #node-content,
+  .page-main-content {
+    padding: 0 10px;
+  }
+}
+
+.page-user-edit,
+.page-scheme-updates {
+  section.main-content {
+    padding: 0 10px;
+  }
+}
+
+.page-taxonomy-term #main #content .wrapper #node-content {
+  padding: 0;
+}
+
+#content aside.scheme-meta,
+#content aside.user-meta,
+#content aside#sidebar {
+  @include breakpoint(md){
+    @include zen-grid-item(2, 6);
+    @include box-sizing(content-box);
+  }
+}
+
+.page-user #content>.block-views {
+  padding-top: 1.25em !important;
+}
+
+aside.scheme-meta {
+  @include breakpoint( md ){
+    @include clearfix;
+  }
+}
+
+#content article>header, {
+  @include clearfix;
+}
+
+/* ------------------------ */
+/* Main Layouts:            */
+/* ------------------------ */
+
+#content {
+  // keeps the footer from overlapping content
+  @include legacy-pie-clearfix;
+}
+
+@include breakpoint( md ) {
+
+  $gutter-width: 20px;
+
+  #main .scheme-collection-view .view-content,
+  #main .scheme-collection-view .block-title,
+  // #main section.main-content,
+  #main form#privatemsg-list,
+  .page-user #main .view-empty {
+    @include box-sizing( border-box );
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  #main #block-views-scheme-overview-block-1.scheme-collection-view .view-content {
+    @include clearfix;
+    overflow: visible;
+  }
+
+  /* ------------------------------------------------ */
+  /* Elements that should span 100% of the page width */
+  /* ------------------------------------------------ */
+  .page-node #content,
+  .page-user #content,
+  .page-node-edit #content {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* ------------------------ */
+  /* Two column layouts:      */
+  /* ------------------------ */
+  // Goals and issues pages use .main-content not section.content or .page-content
+  // as the lauout wrapper (Container of content and sidebars )
+  // This floats the content eft of the sidebar
+  .sidebar-second section.page-content,
+  // article .wrapper>section.content is the scheme node.
+  article .wrapper>section.content {
+    @include zen-grid-item(6,0);
+    margin-left: 0;
+  }
+
+  .section-scheme {
+    #sidebar {
+      margin-top: 0em;
+    }
+    .edit #sidebar {
+      margin-top: 4.75em;
+      #block-asb-scheme-group-info {
+        margin-top: .25em;
+      }
+    }
+  }
+}
+
+/* ------------------------ */
+/* Add scheme pages:        */
+/* ------------------------ */
+.page-node-add-scheme {
+  #content {
+    width: $zen-grid-width;
+    position: relative;
+    @include box-sizing( border-box );
+    padding-left: 150px;
+    // .form-field-type-text-long,
+    // .form-type-textfield {
+    // .form-wrapper {
+    //   max-width: 500px;
+    // }
+  }
+}
+
+/* ------------------------ */
+/* Footer content:          */
+/* ------------------------ */
+#footer {
+
+  background: $backdrop;
+  padding-bottom: 5em;
+
+  section.content {
+
+
+    #block-views-inspiration-footer-block {
+      @include zen-nested-container;
+      li:first-child {
+        @include zen-grid-item(1, 1);
+      }
+      li:nth-child(2) {
+        @include zen-grid-item(1, 2);
+      }
+      li:last-child {
+        @include zen-grid-item(1, 3);
+      }
+      li {
+        @include zen-grid-flow-item( 2,8 );
+        .footer-image-wrap {
+          clear: both;
+          display: block;
+          float: none;
+        }
+      }
+    }
+
+    @include breakpoint( md ){
+      @include zen-grid-container;
+      #block-views-goals-and-schemes-block,
+      #block-views-goal-taxonomy-test-block {
+        @include zen-grid-item( 3, 1 );
+        table {
+          width: 95%;
+        }
+      }
+      #block-views-inspiration-footer-block {
+        @include zen-grid-item( 3, 4 );
+        @include zen-nested-container;
+        li:first-child {
+          @include zen-grid-item(1, 1);
+        }
+        li:nth-child(2) {
+          @include zen-grid-item(1, 2);
+        }
+        li:last-child {
+          @include zen-grid-item(1, 3);
+        }
+        li {
+          @include zen-grid-flow-item( 2,8 );
+          .footer-image-wrap {
+            clear: both;
+            display: block;
+            float: none;
+          }
+        }
+      }
+      #block-menu-menu-as {
+        @include zen-grid-item( 2, 7 );
+      }
+    }
+
+    @include breakpoint( md, max-width ){
+      &>.block-menu,
+      &>.block-views {
+        padding-left: 2em !important;
+        float: none;
+      }
+      #block-views-inspiration-footer-block,
+      #block-menu-menu-as {
+        margin-top: 2em;
+      }
+      .view-inspiration-footer {
+        @include clearfix;
+      }
+    }
+
+  }
+}
+
+.page-user-track .page-main-content>table {
+  margin: 1em 0 1em;
+}
+
+
+
+/* ------------------------ */
+/* Schemes Pager:           */
+/* ------------------------ */
+#add_page_scroll_wrapper {
+
+  padding-bottom: 2em;
+  @include pie-clearfix;
+
+  @include breakpoint( md, max-width ) {
+    padding-top: 2em;
+    border-top: 1px solid $rules-color;
+    &:before {
+      content: "Filter schemes";
+      text-transform: uppercase;
+      margin-bottom: 1em;
+      text-align: center;
+      display: block;
+      width: 100%;
+      font-size: 2em;
+      font-family: $header-font-family;
+    }
+    #issues_filter,
+    #collections_filter {
+      width: 50%;
+      margin: 0 auto;
+      .chosen-container {
+        width: 100% !important;
+      }
+    }
+    #load_more_schemes_button {
+      margin: .5em auto !important;
+      width: 50%;
+      display: block;
+    }
+  }
+
+  @include breakpoint( md ) {
+
+    height: 4em;
+
+    #issues_filter,
+    #collections_filter {
+      padding-top: .5em;
+      .chosen-container {
+        width: 100% !important;
+      }
+    }
+
+    #issues_filter {
+      @include zen-float();
+      @include zen-grid-flow-item( 2, 8 );
+      @include box-sizing( border-box );
+      padding-right: 1em;
+    }
+
+
+    #load_more_schemes_button {
+      @include zen-float();
+      @include zen-grid-flow-item( 4, 8 );
+      @include box-sizing( border-box );
+      color: white;
+      letter-spacing: 2px;
+    }
+
+    #collections_filter {
+      @include zen-float();
+      @include zen-grid-flow-item( 2, 8 );
+      @include box-sizing( border-box );
+      padding-left: 1em;
+    }
+
+  }
+
+}
+
+
+//////////////////////
+// Centering content
+//
+
+.page-user-password #user-pass,
+.page-user-register #user-register-form {
+  display: block;
+}
+
+.page-user-password #user-pass,
+.page-user-register #user-register-form,
+// center the site masthead
+#header .content,
+// search container
+.views-exposed-widgets,
+// add scheme
+.page-node-add-scheme #main .wrapper,
+// centering beige header content
+.page-header .wrapper,
+// pages with full-width jaggies
+.page-main-content,
+// footer content
+#footer .content,
+// schemes
+#content article>.wrapper,
+#add_page_scroll_wrapper,
+.not-logged-in.section-user #user-login {
+  @extend %full-centered;
+}
+
+#user-login {
+  display: block;
+  // padding-top: 3em;
+}
+
+.page-node-add-scheme #content {
+  padding-right: 2em;
+  width: auto !important;
+}

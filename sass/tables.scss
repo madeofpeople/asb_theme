@@ -1,0 +1,381 @@
+/**
+ * @file
+ * Tables Styling
+ */
+
+@import "base";
+
+table {
+  width: 100%;
+  margin: 0;
+  background: transparent;
+}
+table td,
+table th {
+  border: none;
+  background: transparent;
+  background-color: none;
+}
+tr.even,
+tr.odd,
+tr.active,
+th.active {
+  border: none;
+  background: transparent;
+  background-color: none;
+}
+tr.odd {
+}
+tr.drag {
+}
+tr.drag-previous {
+}
+table th {
+}
+table th.active {
+}
+table th a {
+  display: block;
+  position: relative;
+}
+table th.active a {
+  padding: 0 25px 0 0; /* LTR */
+}
+table th.active img {
+  position: absolute;
+  top: 3px;
+  right: 3px; /* LTR */
+}
+table td.active {
+}
+table tr.odd td.active {
+}
+table tr.selected td.active,
+table tr.selected td {
+}
+table.system-status-report tr {
+}
+table.system-status-report tr.ok {
+}
+table.system-status-report tr.info {
+}
+table.system-status-report tr.warning {
+}
+table.system-status-report tr.error {
+
+}
+/**
+ * Exception for webkit bug with the right border of the last cell
+ * in some tables, since it's webkit only, we can use :last-child
+ */
+tr td:last-child {
+}
+
+// ////////////////////////////
+// General Table Styling
+// 
+#content {
+  .page-content,
+  .page-main-content {
+      table.views-table,
+      table.sticky-table {
+        margin-top: 10px;
+        @include body-text($size: 1.1em, $color: $text-color-prominent);
+        thead {
+          border-top: {
+            @include standard-border;
+          }
+          border-bottom: {
+            @include standard-border;
+          }
+          th {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin: 0 10px;
+            border-bottom: none;
+            @include body-text($size: 1.1em, $color: $text-color-prominent);
+            &:first-child {
+              padding-left: 10px;
+            }
+          }
+        }
+        tbody {
+          tr {
+            td,
+            td.active {
+              padding: 10px 0;
+              background: transparent;
+              // vertical-align: top;
+              @include body-text($size: 1.1em, $color: $text-color-prominent);
+              p {
+                padding: 0;
+                margin: 0;
+                @include body-text($size: 1em, $color: $text-color-prominent);
+              }
+              em {
+                font-style: normal;
+              }
+              &:first-child {
+                padding-left: 10px;
+              }
+            }
+            &.even {
+              background: $even-backdrop;
+            }
+            &.new {
+              td {
+                font-weight: bold;
+                a {
+                  font-weight: bold
+                }
+              }
+            }
+            ul {
+              @include no-bullets;
+                margin: 0;
+                padding: 0;
+            }
+          } 
+        }
+      }
+  }  
+}
+
+// ////////////////////////////
+// User Dashboards
+// 
+
+.page-facilitator-dashboard,
+.page-dashboard  {
+
+  #block-quicktabs-notifications,
+  #block-quicktabs-schemes,
+  #block-quicktabs-schemes-for-schemers {
+    div.views-exposed-widget {
+      div.bef-select-as-links {
+        div.form-item {
+          display: inline-block;
+          a {
+            @include button($font-family: $base-font-family, $color: #fff, $font-color: $text-color);
+          }
+          &.selected a {
+            background: $button-color-primary;
+            color: $nav-title-color;
+          }
+        }
+      }
+      div.chosen-container {
+        display: none !important;
+      }
+    }
+  }
+
+  table {
+    margin-top: 0 !important;
+    thead {
+      border-top: {
+        @include standard-border;
+      }
+      border-bottom: {
+        @include standard-border;
+      }
+      th {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin: 0 10px;
+        @include body-text($size: 1.1em, $color: $text-color-prominent);
+        &:first-child {
+          padding-left: 10px;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td,
+        td.active {
+          padding: 10px 0;
+          background: transparent;
+          @include body-text($size: 1.1em, $color: $text-color-prominent);
+          p {
+            padding: 0;
+            margin: 0;
+            @include body-text($size: 1em, $color: $text-color-prominent);
+          }
+          mark.new {
+            display: none;
+          }
+          &:first-child {
+            padding-left: 10px;
+          }
+        }
+        &.even {
+          background: $even-backdrop;
+        }
+        &.new {
+          font-weight: bold;
+        }
+      } 
+    }
+  }
+}
+
+// Scheme Member Edit
+.page-group-node,
+.page-node-group,
+.page-user,
+.page-node-workflow,
+.page-user-track,
+.section-messages,
+.section-user {
+  #content {
+    div.view-content {
+      table.views-table {
+        @include body-text($size: 1.1em, $color: $text-color-prominent);
+        thead {
+          border-top: {
+            @include standard-border;
+          }
+          border-bottom: {
+            @include standard-border;
+          }
+          th {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin: 0 10px;
+            border-bottom: none;
+            @include body-text($size: 1.1em, $color: $text-color-prominent);
+            &:first-child {
+              padding-left: 10px;
+            }
+          }
+        }
+        tbody {
+          tr {
+            td,
+            td.active {
+              padding: 10px 0;
+              background: transparent;
+              // vertical-align: top;
+              @include body-text($size: 1.1em, $color: $text-color-prominent);
+              p {
+                padding: 0;
+                margin: 0;
+                @include body-text($size: 1em, $color: $text-color-prominent);
+              }
+              em {
+                font-style: normal;
+              }
+              // mark.new {
+              //   display: none;
+              // }
+              &:first-child {
+                padding-left: 10px;
+              }
+            }
+            &.even {
+              background: $even-backdrop;
+            }
+            &.new {
+              font-weight: bold;
+            }
+            ul {
+              @include no-bullets;
+                margin: 0;
+                padding: 0;
+            }
+          } 
+        }
+      }
+    }    
+  }
+
+}
+
+.page-user-messages {
+  table.privatemsg-list {
+    margin-top: 10px;
+    @include body-text($size: 1.1em, $color: $text-color-prominent);
+    thead {
+      border-top: {
+        @include standard-border;
+      }
+      border-bottom: {
+        @include standard-border;
+      }
+      th {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin: 0 10px;
+        border-bottom: none;
+        @include body-text($size: 1.1em, $color: $text-color-prominent);
+        &:first-child {
+          padding-left: 10px;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td,
+        td.active {
+          padding: 10px 0;
+          background: transparent;
+          // vertical-align: top;
+          @include body-text($size: 1.1em, $color: $text-color-prominent);
+          p {
+            padding: 0;
+            margin: 0;
+            @include body-text($size: 1em, $color: $text-color-prominent);
+          }
+          em {
+            font-style: normal;
+          }
+          // mark.new {
+          //   display: none;
+          // }
+          &:first-child {
+            padding-left: 10px;
+          }
+        }
+        &.even {
+          background: $even-backdrop;
+        }
+        &.new {
+          font-weight: bold;
+        }
+        ul {
+          @include no-bullets;
+            margin: 0;
+            padding: 0;
+        }
+      } 
+    }
+  }
+}
+
+.crm-container .messages td.tasklist {
+  padding: 10px 0;
+  background: transparent;
+  // vertical-align: top;
+  @include body-text($size: 1.1em, $color: $text-color-prominent);
+  p {
+    padding: 0;
+    margin: 0;
+    @include body-text($size: 1em, $color: $text-color-prominent);
+  }
+  em {
+    font-style: normal;
+  }
+  &:first-child {
+    padding-left: 10px;
+  }
+  &:nth-child(odd) {
+    background: $even-backdrop;
+  }
+  ul {
+    @include no-bullets;
+      margin: 0;
+      padding: 0;
+  }
+}
+
+

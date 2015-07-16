@@ -1,0 +1,144 @@
+
+//
+// "base" partial
+//
+// To make it easier to use all variables and mixins in any Sass file in this
+// theme, each .scss file has a @import "base" declaration. And this _base.scss
+// file is in charge of importing all the other partials needed for the theme.
+//
+// This base partial is organized in this way:
+// - First we set any shared Sass variables.
+// - Next we import Compass plug-ins (Sass mixin libraries).
+// - Last we import a _custom.scss partial that includes our custom mixins.
+//
+
+// Colors, etc.
+$accent: #EF3F26; //orange
+$accent-secondary: #F15D38; //links etc.
+$panel: #F3F2E0; //beige background
+$sidebar-panel-primary: #ebebeb;
+$sidebar-panel-secondary: #e1eaea;
+$brand: #912A1B;//wine
+$backdrop: #2D2D2E; //#141414;	//dark grey background
+$even-backdrop: #f0f0f0;
+$odd-backdrop: white; 
+$rules-color: #cfcfcf; // gray horizontal and vertical rules
+$rules-color-accent: #141414;
+$text-color: #7C7F7E; // body copy
+$text-color-prominent: #414042;
+$text-color-secondary: #808080;
+$button: #826853; // brown
+$search-input: #DDE4CC;
+$membership-backdrop: $sidebar-panel-secondary; // only used in "scheme leader and membership panel"
+//same as wine, but both things are unique enough to have separate vars
+$skills: #912A1B;
+$supplies: #56CBC8;
+$funds: #5FC86C;
+$site-title-color: white;
+$nav-title-color: white;
+$nav-description-color: $text-color;
+$gray-medium: #ccc;
+$gray-dark: #000;
+$button-color-primary: #EF3F26;
+$button-color-secondary: #9c897a;
+$button-color-tertiary: $supplies; // used for edit form actions
+
+$twitter-color: #00B0ED;
+$facebook-color: #3B5998;
+
+$white: #fff;
+$black: #000;
+
+// The amount lists, blockquotes and comments are indented.
+$indent-amount: 30px;
+
+// Images
+$next-image: url('/sites/all/themes/asb/images/pager/next.png');
+$previous-image: url('/sites/all/themes/asb/images/pager/previous.png');
+$next-image-dark: url('/sites/all/themes/asb/images/pager/next-dark.png');
+$previous-image-dark: url('/sites/all/themes/asb/images/pager/previous-dark.png');
+
+
+//
+// Font faces, stacks and sizes.
+//
+
+// Compass' vertical_rhythm extension is a powerful tool to set up a vertical
+// rhythm for your entire page. You can see some of its mixins and functions in
+// use in the normalize.scss file.
+// @see http://compass-style.org/reference/compass/typography/vertical_rhythm/
+// Typography
+// -------------------------
+$sansFontFamily:        SourceSansPro, Tahoma, sans-serif;
+$monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
+
+$header-font-family:   League, sans-serif;
+$header-font-weight:   normal;
+$header-color:         inherit;
+
+$base-font-size:   12px; // The font size set on the root html element.
+
+// $base-line-height set to px instead of a factor because 
+// it was resulting in the following error
+// error sass/normalize.scss (Line 108 of _vertical_rhythm.scss: 0.08571em/px isn't a valid CSS value.) 
+// this is a vertical rhythm bug
+$base-line-height: 14.4px; // This line-height determines the basic unit of vertical rhythm.
+
+
+// $h1-font-size: 2.7857 * $base-font-size;
+$h1-font-size: 4.85 * $base-font-size;
+$h2-font-size: 2.7857 * $base-font-size;
+$h3-font-size: 1.17 * $base-font-size;
+$h4-font-size: 1    * $base-font-size;
+$h5-font-size: 0.83 * $base-font-size;
+$h6-font-size: 0.75 * $base-font-size;
+
+
+// Now create some variables for the font stacks we want to use on this site.
+$base-font-family: $sansFontFamily; // The font family set on the html element.
+$font-body:        $sansFontFamily;
+$font-monospace:   $monoFontFamily;
+$header-line-height: 1.2;
+
+// pager sizes, margins etc...
+$pager-height: image-height('pager/previous.png');
+$pager-width: image-width('pager/previous.png');
+// $scheme-height: 300px;
+$pager-hmargin: -40px;
+$pager-vmargin: $pager-hmargin;
+
+$screen-lg: 1100px;
+$screen-md: 960px;
+$screen-sm: 480px;
+
+$zen-grid-width: 960px;
+$zen-column-count:  8;
+$zen-gutter-width:  10px;
+$zen-auto-include-item-base: false;
+
+$box-sizing-polyfill-path: "../polyfills/boxsizing.htc" !default;
+// We don't need the xs
+// $scren-xs: 480px;
+
+//
+// Partials to be shared with all .scss files.
+//
+
+@import "compass/support";  // Add Compass' IE and vendor prefix support variables.
+@import "compass/utilities/general/clearfix"; // Better than Drupal's clearfix.
+@import "compass/utilities/sprites"; // See http://compass-style.org/help/tutorials/spriting/
+@import "compass/utilities/sprites/base";
+@import "compass/typography/lists/inline-list";
+@import "compass/typography/lists/inline-block-list";
+@import "compass/typography/lists/bullets";
+@import "compass/css3";     // Use one CSS3 mixin instead of multiple vendor prefixes.
+@import "zen";              // Add the Zen Grids responsive layout mixins.
+@import "zen/background";
+@import "compass/typography/text/replacement";
+@import "compass/typography/vertical_rhythm"; // Helps set up a vertical rhythm.
+/*@import "font-icons";*/
+@import "compass/css3/box-sizing";
+@import "includes/entypo";
+@import "mixins";           // Import our custom mixins.
+@import "extends";           // Import our custom extendables.
+

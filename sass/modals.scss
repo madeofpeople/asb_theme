@@ -1,0 +1,409 @@
+//Modals
+
+@import "base";
+
+.ui-dialog {
+	z-index: 1100;
+}
+
+%modal-close {
+		@include font-icon-base($family:"entypo", $font-size: 4em, $margin: 0em, $width: .5em);
+		@extend %entypo-circled-cross;
+		// overflow: visible ;
+		float: right;
+		position: relative;
+		right: -0.5em;
+		top: -2.5em;
+		color: $accent !important;
+		display: block;
+		cursor: pointer;
+		span {
+			display: none;
+		}
+}
+
+
+.ctools-modal-content {
+
+	border: none !important;
+	position: relative;
+	background: transparent !important;
+
+	header .modal-update-title {
+		padding: .5em;
+	}
+
+	label {
+		float: none !important;
+		display: block;
+	}
+
+	.form-textarea-wrapper {
+		margin: 0 !important;
+	}
+
+	.filter-help {
+		display: none;
+	}
+
+  #edit-field-people-skills .form-type-select {
+      display: block;
+  }
+
+	ul.tips {
+		margin: 0;
+		padding: 0;
+	}
+
+	.popups-container {
+		overflow: visible !important;
+		height: auto !important;
+		.modal-header {
+			background: $panel;
+			width: auto;
+			.close {
+				@extend %modal-close;
+				text-indent: none;
+				background-image: none;
+				top: -1.5em;
+				background: $panel;
+				border-radius: 1em;
+				right: -1.5em;
+				position: relative;
+				overflow: hidden;
+				&::before {
+					text-indent: 0;
+					position: absolute;
+					left: 0;
+					top: -.225em;
+					display: block;
+				}
+			}
+		}
+	}
+
+	.messages {
+		margin-top:1em;
+		border: none !important;
+	}
+
+	.modal-head-wrapper {
+		z-index: 5;
+		width: 100%;
+		h2.element-invisible {
+			display: none;
+		}
+		.close {
+			@extend %modal-close;
+		}
+	}
+
+	.popups-container,
+	.modal-content-wrapper {
+		border: none;
+	}
+
+	.modal-scroll,
+	.modal-content-wrapper {
+		background: $panel;
+		@include border-radius( 3px );
+		@include box-shadow( 4px 4px 6px rgba( black, .2 ) );
+		padding-top: 1em;
+		// padding-bottom: 1em;
+	}
+
+	.popups-body,
+	.modal-content {
+		overflow: visible !important;
+		padding: 0 1em 1em 1em !important;
+		height: auto !important;
+	}
+
+}
+
+#modalContent.login .ctools-modal-content {
+	min-height: 350px !important;
+	height: auto !important;
+}
+
+#edit-field-issues-goals {
+	.form-type-checkbox {
+		line-height: 2;
+		border-bottom: 1px #dedede solid;
+		padding: .25em 0 .25em;
+		float: left;
+		width: 24em;
+		margin: 0 1em 0 0;
+	}
+}
+
+#field-video-add-more-wrapper {
+
+	padding-top: .125em;
+
+	.mediaBrowserLaunch-processed label {
+		display: none
+	}
+
+	.form-submit {
+		margin-left: 1em;
+	}
+
+	.preview {
+
+		display: block !important;
+		margin-top: 1em;
+		width: 100%;
+		margin-bottom: 1em;
+
+		.form-item {
+			margin: 0;
+		}
+
+		// fill the preview container with the video preview
+		// div,
+		iframe {
+			padding: 0 !important;
+			margin: 0 !important;
+			width: 100%;
+			height: 400px;
+			border: none;
+		}
+
+	}
+
+	.media-item {
+		width: auto !important;
+		border: none !important;
+		background-color: transparent;
+
+		.label-wrapper {
+			width: auto;
+			height: auto;
+		}
+
+		.label-wrapper:hover {
+			border: none;
+			background: none;
+			box-shadow: none;
+			text-decoration: none;
+		}
+
+		.media-filename {
+			width: auto;
+			border: none;
+			background: none;
+			font-size: 1.25em;
+			font-weight: normal;
+			color: $text-color;
+		}
+
+	}
+
+}
+
+#edit-field-image{
+
+	tr.even {
+		background-color: transparent;
+	}
+
+	td {
+		padding-top: 1em;
+		padding-bottom: .5em;
+		border-bottom: 1px #dedede solid;
+		vertical-align: top;
+	}
+
+	&>legend,
+	thead,
+	.tabledrag-changed,
+	.tabledrag-toggle-weight-wrapper {
+		display: none !important;
+	}
+
+	a.tabledrag-handle {
+		display: inline-block;
+	}
+
+	table {
+
+		.image-widget {
+			float: none;
+			width: auto;
+		}
+
+		.image-preview {
+			width: 180px;
+			float: left;
+			img {
+				display: block;
+			}
+		}
+
+		.image-widget-data {
+			width: 320px;
+			.file,
+			.file-size {
+				display: none;
+			}
+			label {
+				float: none;
+			}
+			.description {
+				white-space: normal;
+				width: 300px;
+				margin-bottom: 1em;
+			}
+			input[type="text"] {
+				width: 300px;
+				font-size: .875em;
+				display: block;
+			}
+		}
+
+		input[value="Remove"] {
+			width: 24px;
+			height: 24px;
+			padding: 0;
+			text-indent: -3000px;
+			overflow: hidden;
+			vertical-align: top;
+			position: relative;
+			color:#fff;
+			top: .125em;
+			background-color: transparent !important;
+			background-image: url( /sites/all/themes/asb/images/button-remove.png );
+			background-repeat: no-repeat;
+		}
+
+	}
+
+}
+
+div.ctools-modal-content .form-type-mfw-managed-file {
+
+	background: #fff;
+	border-radius: 6px;
+	padding: 1em;
+
+	label {
+		display: block;
+		float: none;
+	}
+
+	.image-widget.form-managed-file.clearfix {
+		clear: none;
+		float: left;
+		input[value="Upload"] {
+			margin-left: 1em;
+			position: relative;
+			top: .125em;
+		}
+	}
+
+}
+
+#modal-throbber .modal-throbber-wrapper {
+	border-radius: 4px;
+	min-height: 12em;
+	width: 100%;
+  text-align: center;
+  background-color: rgba( 255,255,255,.9);
+  background-image: url('/sites/all/modules/custom/asb_modal/images/ajax-loader.gif');
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+
+//////////////////////////////
+// Specific fields
+//
+
+.form-item-field-people-skills-und .chosen-container {
+	width: 100% !important;
+}
+
+
+.offscreen {
+	@include offscreen;
+}
+
+#newsletterModal {
+
+	@extends #modalContent;
+
+	position: fixed;
+	z-index: 1000;
+	transition-property: top;
+	transition-duration: .25s;
+	width: 100%;
+	height: 100%;
+	top: -100%;
+	display:none;
+
+	&.active {
+		background-color: rgba(#fff, .8);
+		display: block;
+		top: 0;
+	}
+
+	.newsletter-modal-content {
+		background-color: $panel;
+		width: 450px;
+		min-height: 180px;
+		margin: 0 auto;
+		padding: 2em;
+	}
+
+	.newsletter-modal-head-wrapper {
+		@extend .clearfix;
+		position: relative;
+		.close {
+			@extend %modal-close;
+			position: absolute;
+			right: -.75em;
+			top: .25em;
+			border-radius: 50%;
+			border: 2px $panel solid;
+			padding: 0 0 0 0;
+			&::before {
+				line-height: .5;
+			}
+		}
+	}
+
+	.modal-title {
+		font-size: 3em;
+		color: #000;
+		margin-top: 0;
+		margin-bottom: 0;
+		line-height: 1;
+	}
+
+	.newsletter-modal-scroll {
+		@extend .modal-scroll;
+		padding-top: 0;
+		&.spinner {
+			background-repeat: no-repeat;
+			background-image: url(/sites/all/themes/asb/images/spinner.gif);
+			background-position: center center;
+		}
+	}
+
+	.blurb {
+		font-size: 16px;
+	}
+
+	#email-Primary {
+		width: 100%;
+		box-sizing: border-box;
+		margin: 0;
+	}
+
+	.button {
+		@extend .civi-button;
+		width: 100%;
+	}
+
+}

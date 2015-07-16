@@ -1,0 +1,1137 @@
+/**
+ * @file
+ * Form Styling
+ */
+
+@import "base";
+
+form {
+  @include body-text;
+  input[type="button"], 
+  input[type="reset"], 
+  input[type="submit"],
+  .button-no.fake-cancel {
+    @include button($height: 30px, $font-size: $h3-font-size + 6px);
+    border: none;
+    margin-right: 5px;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+  }
+  fieldset {
+    border: none;
+    padding: 4px 0;
+  }
+  //Override annoying CiviCRM styling
+  .crm-container {
+    input[type="text"],
+    input[type="password"],
+    textarea {
+      @include body-text($size: $base-font-size + 2px);
+    }
+  }
+  .form-actions {
+    margin-top: 0;
+  }
+  // Make the form fields a little prettier
+  input[type="text"],
+  input[type="password"],
+  textarea,
+  select,
+  .chosen-container-single .chosen-single {
+    border: {
+        @include standard-border;
+      }
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    padding: 4px 7px;
+    outline: 0;
+    -webkit-appearance: none;
+    &:focus { // Add a highlight border color
+      border: {
+        @include standard-border($color: $supplies);
+      }
+    }
+  }
+  input[type="text"],
+  input[type="password"],
+  textarea,
+  select {
+    @include body-text($size: $base-font-size + 2px);
+  }
+  input[type="password"] {
+    padding: 4px 0;
+  }
+  .chosen-container-active .chosen-single {
+    border: { // Add a highlight border color
+      @include standard-border($color: $supplies);
+    }
+  }
+}
+
+// Ross removed to display issues checkboxes on scheme.
+
+/* fieldset#edit-contact,
+/* fieldset#edit-field-user-bio-und-0-format,
+/* div.form-type-checkboxes {
+/*   display: none;
+/* } */
+
+fieldset#edit-timezone {
+  legend {
+    display: none;
+  }
+}
+
+//Add Scheme buttons are bigger
+#load_more_schemes_button {
+  @include button($height: 50px, $font-size: $h2-font-size);
+}
+.page-node-add-scheme {
+  form {
+    input[type="button"], 
+    input[type="reset"], 
+    input[type="submit"]  {
+      @include button($height: 50px, $font-size: $h2-font-size);
+    }
+  }
+}
+
+
+// User Registration Form
+
+.page-user-register {
+  #edit-account {
+    margin-top: 35px;
+    &:before {
+      content: 'Basic Information';
+      @include header-style ($size: $h2-font-size - 4);
+    }
+  }
+  #edit-picture {
+    legend {
+      display: none;
+    }
+    &:before {
+      content: 'User Photo';
+      @include header-style ($size: $h2-font-size - 4);
+    }
+  }
+  #edit-civicrm-profile-register {
+    legend {
+      display: none;
+    }
+    fieldset {
+      .label {
+        float: none;
+        text-align: left;
+      }
+    }
+    .edit-value.content {
+      margin-left: 0;
+    }
+    label:first-child,
+    #edit-field-user-bio-und-0-value>div.label,
+    #editrow-custom_53 > div:nth-child(1) > label:nth-child(1),
+    #editrow-custom_23 > div:nth-child(1) > label:nth-child(1),
+    label[for=edit-field-issue-reference-un],
+    label[for=edit-field-user-bio-und-0-value] {
+      @include header-style ($family: $font-body, $size: $h3-font-size + 4, $weight: bold);
+      width: 100%;
+      margin-left: 0;
+    }
+    div {
+      margin-left: 0;
+    }
+    label[for=first_name],
+    label[for=last_name],
+    label[for=street_address-1],
+    label[for=city-1],
+    label[for=postal_code-1],
+    label[for=country-1],
+    label[for=state_province-1],
+    label[for=custom_54],
+    label[for=custom_37],
+    label[for=custom_63],
+    label[for=custom_72],
+    label[for=custom_73],
+    label[for=custom_57],
+    label[for=custom_54] {
+      display: inherit;
+      @include body-text($weight: bold);
+    }
+    &:before {
+      content: 'User Details';
+      @include header-style ($size: $h2-font-size - 4);
+    }
+    table.form-layout-compressed tbody td.labels {
+        line-height: 1.5em;
+
+    }
+
+    .edit-value,
+    .label {
+      input[type="checkbox"] {
+        display: block;
+        float: left;
+        width: 25px;
+        clear: left;
+      }
+      label {
+        @include body-text;
+        display: block;
+        float: left;
+        line-height: 1.5em;
+      }
+    }
+    .crm-section {
+       div.edit-value {
+        margin-left: 0;
+      }
+    }
+
+    #editrow-custom_23 {
+      .label:first-child {
+        display: inherit;
+      }
+      table {
+        @include zen-clear;
+        tbody {
+          border: none;
+        }
+      }
+    }
+
+    #editrow-custom_53 {
+      &>label {
+        @include zen-clear (both);
+        display: block;
+        margin-left: 20px;
+        margin-top: -15px;
+      }
+    }
+
+  }
+}
+
+// ckeditor
+form {
+  .form-textarea-wrapper,
+  .ctools-modal-content,
+  span.cke_skin_kama {
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    .cke_wrapper {
+      background-image: none;
+      background-color: $rules-color;
+    }
+    span.cke_browser_gecko {
+      .cke_wrapper {
+        border-radius: 0;
+        padding: 5px 1px;
+        span.cke_toolbar {
+          margin-left: 5px;
+        }
+      }
+    }
+    .wysiwyg-toggle-wrapper {
+      display: none;
+    }
+  }
+  fieldset.filter-wrapper {
+      display: block;
+    }
+  #edit-actions,
+  .form-actions {
+    @include zen-clear;
+    display: block;
+    margin-top: 10px;
+
+    input {
+      @include zen-float(right);
+    }
+  }
+}
+
+.form-item { /* Wrapper for a form element (or group of form elements) and its label */
+  margin: 1.5em 0;
+
+  input.error,
+  textarea.error,
+  select.error { /* Highlight the form elements that caused a form submission error */
+    border: 1px solid #c00;
+  }
+
+  label { /* The label for a form element */
+    display: block;
+    font-weight: bold;
+  }
+
+  label.option { /* The label for a radio button or checkbox */
+    display: inline;
+    font-weight: normal;
+  }
+
+  .form-required { /* The part of the label that indicates a required field */
+    color: #c00;
+  }
+
+  .description { /* The descriptive help text (separate from the label) */
+    @include body-text;
+  }
+
+  .form-checkboxes & ,
+  .form-radios & { /* Pack groups of checkboxes and radio buttons closer together */
+    margin: 0; /* Drupal core uses "0.4em 0" */
+  }
+}
+
+.form-submit { /* The submit button */
+}
+
+.container-inline {
+  div,
+  label { /* Inline labels and form divs */
+    display: inline;
+  }
+}
+
+.tips { /* Tips for Drupal's input formats */
+}
+
+a.button { /* Buttons used by contrib modules like Media */
+  @include appearance(button);
+}
+
+/*
+ * Password confirmation
+ */
+
+.password-parent,
+.confirm-parent {
+  margin: 0;
+}
+
+/*
+ * Search (search-block-form.tpl.php)
+ */
+
+#block-search-form { /* Wrapper for the search form */
+}
+
+/*
+ * Drupal's default login form block
+ */
+
+#user-login-form {
+  text-align: left; /* LTR */
+
+  /*
+   * OpenID
+   *
+   * The default styling for the OpenID login link seems to assume Garland's
+   * styling of list items.
+   */
+
+  ul { /* OpenID creates a new ul above the login form's links. */
+    margin-bottom: 0; /* Position OpenID's ul next to the rest of the links. */
+  }
+
+  html.js & li.openid-link,
+  li.openid-link { /* The "Log in using OpenID" link. */
+    margin-top: 1.5em;
+    margin-left: -20px; /* LTR */ /* Un-do some of the padding on the ul list. */
+  }
+
+  li.user-link { /* The "Cancel OpenID login" link. */
+    margin-top: 1.5em;
+  }
+}
+
+#user-login ul {
+  margin: 1.5em 0;
+}
+
+/*
+ * Drupal admin tables
+ *
+ * We overrode these styles in normalize.css, but restore them for the admin
+ * section of the site.
+ */
+
+form {
+  th {
+    text-align: left; /* LTR */
+    padding-right: 1em; /* LTR */
+    border-bottom: {
+        @include standard-border($width: 3px);
+      }
+  }
+
+  tbody {
+    border-top: {
+        @include standard-border;
+      }
+  }
+
+  tr.even {
+    background-color: #fff;
+  }
+
+  table .item-list ul {
+    margin: 0;
+  }
+}
+
+@if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+  .lt-ie8 tr.even,
+  .lt-ie8 tr.odd {
+    th,
+    td {
+      border-bottom: {
+        @include standard-border; /* IE doesn't display borders on table rows */
+      }
+    }
+  }
+}
+
+// ////////////////////////////
+// Add Scheme
+// 
+
+/* node editing */
+.page-node-add-scheme {
+  background: $panel;
+  .step-title {
+    clear: both; 
+    max-width: 960px;
+    border-bottom: 1px #dedede solid;
+    margin: 1em auto .5em auto;
+  }
+  // .title-description,
+  .scheme-title {
+    display: none;
+  }
+  .step-add-title-and-description {
+    display: inherit;
+  }
+  .description{
+    strong:first-child {
+      display: block;
+      @include header-style($size: 2.5em);
+      line-height: 1.5;
+      color: $text-color;
+    }
+    strong:nth-child(2) {
+      display: block;
+      @include header-style($size: $h3-font-size + 6);
+      line-height: 1.25;
+      color: $text-color;
+    }
+  }
+  h3 {
+      margin-top: 0;
+      font-size: 2.5em;
+      line-height: 1.5;
+      color: $text-color;
+  }
+  label[for=edit-title] {
+    text-transform: lowercase;
+    &::first-letter {
+      text-transform: capitalize;
+    }
+
+  }
+  input#edit-skip,
+  input#edit-preview {
+    display: none;
+  }
+  
+  #stepper-add-scheme {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    ul {
+      li {
+        font-size: 1.5em;
+        span {
+          display: block;
+          @include hide-text;
+        }
+      }
+      li.current{
+        font-size: 2.5em;
+        color: $accent;
+        position: relative;
+        left: .1875em;
+        &:before {
+          text-indent: -0.1275em;
+          content: "STEP ";
+        }
+      }
+    }
+  }
+}
+
+// ////////////////////////////
+// User Profile Edit
+// 
+
+// Edit form labels
+.page-user-edit {
+  form {
+    label {
+      @include header-style($size: $h3-font-size + 2px);
+      &.option {
+        @include body-text;
+      }
+    }
+    .description {
+      font-style: italic;
+    }
+    #edit-picture {
+      legend {
+        @include header-style($size: $h3-font-size + 2px);
+      }
+    }
+    .edit-value,
+    .label {
+      input[type="checkbox"] {
+        display: block;
+        float: left;
+        width: 25px;
+        clear: left;
+      }
+      label {
+        @include body-text;
+        display: block;
+        float: left;
+      }
+    }
+    .crm-section {
+      .label {
+        &:first-child {
+          display: none;
+        }
+      }
+      div.edit-value {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.page-user-edit-asb-user-profile,
+.page-user-edit-more-about-me {
+  form#user-profile-form {
+    #editrow-custom_37,
+    #editrow-custom_72,
+    #editrow-custom_73,
+    #editrow-custom_57 {
+      .label {
+        display: block;
+      }
+      .resizable-textarea {
+        @include zen-clear;
+        display: block;
+      }
+    }
+    .crm-section {
+      .label {
+        &:first-child {
+          display: inherit;
+        }
+      }
+      // div.edit-value {
+      //   margin-left: 0;
+      // }
+    }
+    .description {
+      margin-left: 0;
+      font-style: italic;
+    }
+    table.form-layout-compressed {
+      @include zen-clear;
+    }
+    #editrow-custom_23 > div:nth-child(1) > label:nth-child(1),
+    #editrow-custom_101 > div:nth-child(1) > label:nth-child(1),
+    #editrow-custom_72 > div:nth-child(1) > label:nth-child(1),
+    #editrow-custom_57 > div:nth-child(1) > label:nth-child(1) {
+      @include header-style($size: $h3-font-size + 2px);
+    }
+    #editrow-custom_101 > div:nth-child(2) > label:nth-child(2),
+    #editrow-custom_101 > div:nth-child(2) > label:nth-child(4) {
+      display: inline;
+      float: none;
+    }
+
+  }
+}
+
+.page-user-edit-name-and-address,
+.page-user-edit-more-about-me {
+  form#user-profile-form {
+    .crm-profile-name-name_and_address {
+      #crm-container.crm-container {
+        .label {
+          display: inherit;
+        }
+      }
+    }
+  }  
+}
+
+form#user-profile-form {
+  .crm-profile-name-ASB_User_Profile_19 {
+    #helprow-custom_54,
+    #helprow-custom_23 {
+      .content {
+        margin-left: 0;
+        padding-top: 1.2em;
+        @include header-style ($size: $h3-font-size + 4);
+      }
+    }
+  }
+  #edit-account {
+    .form-item-pass {
+      padding-top: 20px;
+      padding-bottom: 10px;
+      border-top: {
+        @include standard-border;
+      }
+      border-bottom: {
+        @include standard-border;
+      }
+      &:before {
+        content: "Change Password";
+        @include header-style;
+        padding-bottom: 10px;
+      }
+      .password-parent {
+        padding-top: 10px;
+      }
+      .password-suggestions {
+        border: { // Make the password suggestion border the same as the highlight border color
+          @include standard-border($color: $supplies);
+        }
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+        padding: 4px 7px;
+      }  
+    }
+  }
+  #edit-picture {
+    border-bottom: {
+      @include standard-border;
+    }
+    legend .fieldset-legend {
+      @include header-style;
+        &:before {
+        content: "Profile ";
+        padding-bottom: 10px;
+      }    
+    }
+  }
+  #edit-actions {
+    input {
+      &#edit-cancel {
+        @include button($height: 30px, $font-size: $h3-font-size + 6px, $color: $button-color-tertiary);
+      }
+    }
+  }
+}
+
+.comment-form { 
+    @include zen-clear;
+    margin-bottom: 20px;
+    padding: 10px 20px 35px 20px;
+    // background: $odd-backdrop;
+
+    #edit-author--2 {
+      display: none;
+    }
+    fieldset.filter-wrapper {
+      display: none;
+    }
+  }
+
+// ////////////////////////////
+// Scheme Edit
+// 
+
+.section-node-edit {
+
+// Scheme Edit
+  &.node-type-scheme {
+
+    // Page-wide
+    .description {
+      font-style: italic;
+    }
+
+    .form-item-title,
+    .form-field-name-field-location,
+    .form-field-name-field-brief-internal-description,
+    .form-field-name-field-issues-goals,
+    .field-name-body,
+    .form-field-name-field-featured,
+    .form-field-name-field-from-the-movie,
+    .form-field-name-field-progress,
+    .form-field-name-field-facilitator,
+    .form-field-name-field-private-description,
+    .workflow-form-container,
+    .form-field-name-field-video,
+    .form-field-name-field-material-needs,
+    .form-field-name-field-people-skills,
+    .form-field-name-field-funding-needs,
+    .field-type-text-with-summary,
+    .form-field-name-field-image {
+      @include zen-clear;
+      border-bottom: {
+        @include standard-border;
+      }
+      label:first-child {
+        @include header-style;
+        line-height: $header-line-height;
+      }
+    }
+
+    // Specific
+    .form-item-title {
+      padding-bottom: 1.5em;
+    }
+
+    .form-field-name-field-issues-goals {
+      .description {
+        @include zen-clear;
+        padding-top: .55em;
+      }
+    }
+    .form-field-name-field-progress {
+      .sliderfield-display-values-field {
+        display: inline-block;
+        @include body-text($weight: bold, $color: $text-color-prominent);
+        &:after {
+          content: '%';
+        }
+      }
+      .ui-slider-horizontal {
+        border: {
+          @include standard-border;
+        }
+        background: $button-color-tertiary;
+      }
+      .ui-slider-handle {
+        background: $accent;
+      }
+    }
+    .field-type-text-with-summary {
+       padding-bottom: 1.5em;
+      .form-type-select {
+        label {
+          @include body-text($weight: bold, $color: $text-color-prominent);
+        }
+      }
+    }
+    .form-field-name-field-video {
+      a.button {
+        @include button($font-family: $font-body);
+        &.launcher {
+           @include button($font-family: $font-body, $color: $button-color-tertiary);
+        }
+        &.remove {
+           @include button($font-family: $font-body, $color: $button-color-tertiary);
+          &:after {
+            content:' \2716';
+          }
+        }
+      }
+      .preview.launcher {
+        @include zen-clear;
+        padding-bottom: 1.5em;
+      }
+      
+      // #field-video-add-more-wrapper .preview {
+      //   display: inline-block;
+      //   margin-bottom: 1em;
+      //   margin-top: 1em;
+      //   vertical-align: middle;
+      // }
+
+      // #field-video-add-more-wrapper .preview div,
+      // #field-video-add-more-wrapper .preview iframe { 
+      //   border: none;
+      //   margin: 0 !important;
+      //   padding: 0 !important;
+      //   width: 400px;
+      // }
+
+      #field-video-add-more-wrapper .mediaBrowserLaunch-processed label {
+        display: inherit;
+      }
+      label {
+        &.media-filename {
+          @include body-text($weight: bold, $line-height: $base-line-height + 4);
+        }
+      }
+    }
+    .form-field-name-field-image {
+      label,
+      label:first-child {
+        @include body-text($weight: bold, $color: $text-color-prominent);
+      }
+      legend {
+        @include header-style;
+        line-height: $header-line-height;
+      }
+      input[type="submit"] {
+        @include button($font-family: $font-body, $color: $button-color-tertiary);
+      }
+    }
+    .workflow-form-container {
+      .workflow-buttons {
+        input[type="submit"] {
+          @include button($font-family: $font-body, $color: $button-color-tertiary);
+        }
+      }
+      padding-bottom: 1.5em;
+    }
+
+    .form-field-name-field-material-needs {
+      thead tr th {
+        border: none;
+      }
+    }
+
+    .form-field-name-field-location {}
+    .form-field-name-field-brief-internal-description {}
+    .field-name-body {}
+    .form-field-name-field-featured {}
+    .form-field-name-field-from-the-movie {}
+    .form-field-name-field-facilitator {}
+    .form-field-name-field-private-description {}
+    .form-field-name-field-people-skills {}
+    .form-field-name-field-funding-needs {}
+
+    .form-actions {
+      input[type="submit"] {
+        &#edit-submit {}
+        &#edit-preview {
+          // @include button($height: 30px, $font-size: $h3-font-size + 6px, $color: $button-color-tertiary);
+          display: none;
+        }
+        &#edit-delete {
+          @include button($height: 30px, $font-size: $h3-font-size + 6px, $color: $button-color-tertiary);
+          &:after {
+            content:' \2716';
+          }
+        }
+      }
+    }
+    .field-add-more-submit{
+      @include button($font-family: $font-body, $color: $button-color-tertiary);
+    }
+
+    // Types
+    .field-widget-options-onoff {}
+    .form-field-type-file {}
+    .form-field-type-image {}
+  }
+}
+
+// ////////////////////////////
+// Messages
+// 
+
+.section-messages {
+  #main {
+    form#privatemsg-list {
+      margin-top: 10px;
+    }  
+    #privatemsg-filter-tags {
+      margin-top: 10px;
+    }
+    .privatemsg-message-participants {
+      margin-top: 10px;
+      @include body-text ($size: 1.25rem);
+      border-bottom: {
+        @include standard-border;
+      }
+    }
+  }
+  .privatemsg-author-avatar,
+  .privatemsg-message-column {
+    @include zen-float(left);
+  }
+  .privatemsg-author-avatar {
+    width: 10%;
+    min-width: 30px;
+    padding-right: 1%;
+  }
+  .privatemsg-message-column  {
+    width: 89%;
+    .privatemsg-message-information {
+      border-bottom: {
+        @include standard-border;
+      }
+      .privatemsg-author-name,
+      .privatemsg-message-date {
+        @include body-text ($size: 1.25rem);
+      }
+    }
+    .privatemsg-message-body {
+      margin-left: 0;
+      p {
+        margin: 10px 0;
+      }
+    }
+  }
+}
+
+#canned-email-form {
+  margin-top: 10px;
+}
+
+
+
+/*
+ * Drupal core wrongly puts this in system.menus.css. Since we override that, add it back.
+ */
+
+td.menu-disabled {
+  background: #ccc;
+}
+
+
+// add scheme
+.page-node-add-scheme {
+  #content form{
+    font-size: 1.2rem;
+  }
+  #edit-field-issues-goals-und {
+    @include pie-clearfix;
+    .description {
+      @include pie-clearfix;    
+    }
+    .form-item{
+      float: left;
+      width: 28%;
+      margin-right: 3%;
+      display: inline-block;
+      margin-bottom: .5em;
+      line-height: 1.5;
+    }
+  }
+}
+
+// request membership modal
+#modalContent.donate-skills,
+#modalContent.request-membership {
+  .modal-head-wrapper {
+    // display:none;
+  }
+  #modal-content {
+    height: auto !important;
+  }
+  div.ctools-modal-content .form-item label {
+    width: auto;
+  }
+  #edit-skills {
+    .form-item {
+      display: inline-block;
+      margin-right: .5em;
+      margin-bottom: .25em;
+      padding: .5em .75em;
+      border-radius: .25em;
+      background: rgba(black,.1);
+    }
+  }
+}
+
+
+// // Civi Forms - Moved to _civicrm.scss
+// .section-civicrm {
+//   .main-content {
+//     margin-top: 10px;
+//   }
+//   #crm-container {
+//     &.crm-container {
+//       @include standard-links;
+//     }
+//     .crm-button,
+//     .button {
+//       border: none;
+//       text-shadow: none;
+//       background: transparent;
+//     }
+//     input[type="button"], 
+//     input[type="reset"], 
+//     input[type="submit"],
+//     .button {
+//       @include button($height: 30px, $font-size: $h3-font-size + 6px);
+//       border: none;
+//       text-shadow: none;
+//       color: $nav-title-color !important;
+//       span {
+//         line-height: 30px;
+//         .icon {
+//           display: none;
+//         }
+//       }
+//     }
+//     .button span div.icon {
+//       display: none;
+//     }
+//     input[type="submit"].cancel,
+//     #crm-container .crm-button-type-cancel input[type="submit"].cancel {
+//       @include button($height: 30px, $font-size: $h3-font-size + 6px, $color: $button-color-tertiary);
+//       color: $nav-title-color !important;
+//     }
+//     input[type="text"],
+//     input[type="password"] {
+//       border-radius: 4px;
+//       border: 1px solid $rules-color;
+//     }
+//     input[type="checkbox"], 
+//     input[type="radio"] {
+//       margin-right: 5px;
+//     }
+//     form {
+//       .price-set-row {
+//         display: inline-block;
+//         margin-right: .5em;
+//         margin-bottom: .25em;
+//         padding: .5em .75em;
+//         border-radius: .25em;
+//         background: rgba(black,.1);
+//       }
+//       .label {
+//         label {
+//           @include body-text($weight: bold);
+//           margin: 10px 0 5px 0;
+//         }
+//       } 
+//       label .crm-price-amount-amount {
+//         @include body-text($size: 1.2rem);
+//         font-weight: normal !important;
+//       }
+//       .highlight {
+//         label .crm-price-amount-amount {
+//           font-weight: bold !important;
+//         }
+//       }
+//     }
+//     fieldset {
+//       border: none !important;
+//     }
+//     fieldset>legend {
+//       display: block;
+//       width: 100%;
+//       margin: 0;
+//       padding: 20px 0 10px 0;
+//       @include header-style;
+//     }
+//   }
+//   .crm-container .crm-section .content, 
+//   .crm-container-snippet .crm-section .content,
+//   .crm-container .display-block {
+//     margin-left: 0;
+//   }
+//   .crm-container .help,
+//   .crm-container #help {
+//     margin: 10px 0;
+//   }
+//   .crm-container .help,
+//   .crm-container #help,
+//   .messages,
+//   .status,
+//   .crm-container .crm-form-block {
+//     border: none;
+//     border-radius: 0 !important;
+//     padding: 12px;
+//     background: $sidebar-panel-primary;
+//     color: $text-color-prominent;
+//   }
+//   #crm-submit-buttons {
+//     margin: 10px 0;
+//   }
+
+//   // Scheme-specific donation page
+//   .crm-contribution-main-form-block {
+//     margin-top: 10px;
+
+//     #intro_text.crm-section {
+//       @include pie-clearfix;
+//       padding-bottom: 10px;
+//       border-bottom: {
+//         @include standard-border;
+//       }
+//       @include body-text($size: 1.4rem, $line-height: 2rem);
+//       a {
+//         margin: 10px 0; 
+//         @include button($height: 30px, $font-size: $h3-font-size + 6px, $color: $button-color-tertiary);
+//         display: block;
+//         width: 100px;
+//         white-space: nowrap;
+//       }
+//       p {
+//         @include body-text($size: 1.4rem, $line-height: 2rem);
+//       }
+//     }
+//     .crm-section>.content {
+//       @include body-text($size: 1.2rem);
+//     }
+//     .pcpSupporterText-section {
+//       // margin: 20px 0 !important;
+//       // border: none;
+//       // border-radius: 0 !important;
+//       // padding: 12px;
+//       // background: $sidebar-panel-primary;
+//       // color: $text-color-prominent;
+//       // &>.label {
+//       //   display: none;
+//       // }
+//       display: none;
+//     }
+//     fieldset.pcp-group {
+//       display: none;
+//     }
+//     #nameID,
+//     #nickID,
+//     #personalNoteID {
+//       margin-top: 10px;
+//     }
+//     #nickID {}
+//     #personalNoteID {
+//       &>.label {
+//         float: none;
+//       }
+//     }
+//   }
+//   .crm-container div.status, 
+//   div.m ul#civicrm-menu, 
+//   .crm-container #help, 
+//   .crm-container .help, 
+//   .crm-container .ui-tabs-panel, 
+//   .crm-container .crm-content-block, 
+//   #full-screen-header, 
+//   .crm-container .crm-pager, 
+//   .crm-container form .section-hidden-border, 
+//   .crm-container #search-status, 
+//   .crm-container .crm-form-block, 
+//   .crm-container .crm-search-tasks, 
+//   .crm-container .crm-tasks, 
+//   .crm-container div.form-item, 
+//   .crm-container div.messages {
+//     border-radius: 0 !important;
+//   }
+// } 
+
+
+
+
+
+
